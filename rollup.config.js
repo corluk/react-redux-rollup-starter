@@ -18,8 +18,8 @@ module.exports = {
         } 
         
     },
-   external : ["react" , "react-dom"]
-    , plugins: [
+  // external : ["react" , "react-dom"] , 
+     plugins: [
         typescript({ tsconfig: "tsconfig.rollup.json",}) , 
         babel({
             exclude : "node_modules"
