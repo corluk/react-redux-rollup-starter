@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom" 
 import {TodosComponent} from "./TodosComponent"
 import React from "react"
-import {createStore , Store , Action, Reducer, combineReducers} from "redux"
+import {createStore , Store , Action, Reducer, combineReducers, DeepPartial } from "redux"
+import {configureStore}from "@reduxjs/toolkit"
 
 
-
-import {Provider   } from "react-redux"
+import {Provider  ,  } from "react-redux"
 enum  TodoActionTypes {
  ADD_TODO ="ADD_TODO" 
 
@@ -17,32 +17,41 @@ interface TodoActionPayload extends Action<TodoActionTypes>{
 }
 interface TodoState {
 
-    todos : string[]
+    todos? : string[]
+}
+const reducerInitial : TodoState = { 
+    todos : []
 }
  
-const todos = (state : TodoState  | undefined , action : TodoActionPayload) => {
+const reducertodos    = (durum : TodoState = reducerInitial     , hareket : TodoActionPayload) => {
    
-    switch(action.type){   
+    switch(hareket.type){   
         case TodoActionTypes.ADD_TODO : 
-            return Object.assign({} ,state , {
-                todos : [action.text]
+            return Object.assign({} ,durum , {
+                todos : [hareket.text]
             })
         default :  
-            return { ...  state } 
+            return { ...  durum } 
     }
 
-    return state 
+    return durum
 }
 
 const combinedReducers = combineReducers({
-    todos : todos 
+    sectiontodos : reducertodos
 })
 
-const initial : TodoState  = {
-    todos: ["initial"]
-} 
+const initial   = {
+    sectiontodos: { 
+        todos : ["initial"]
+    }
+     
+}  
 type  red  = ReturnType<typeof combinedReducers>
-const store   =   createStore(combinedReducers ,initial as any  )
+configureStore({ 
+    reducer : reducertodos
+})
+const store   =   createStore(combinedReducers , initial ,undefined  )
 console.log(store)
 console.log(store.getState())
 ReactDOM.render( 
