@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom" 
-import {TodosComponent} from "./TodosComponent"
+import {TodosComponent ,TodoProps , TodosProps} from "./TodosComponent"
 import React from "react"
 import {createStore , Store , Action, Reducer, combineReducers, DeepPartial } from "redux"
 import {configureStore}from "@reduxjs/toolkit"
@@ -52,10 +52,18 @@ configureStore({
     reducer : reducertodos
 })
 const store   =   createStore(combinedReducers , initial ,undefined  )
+
+const initTodos : TodosProps= {
+    todos  : [ {task : "task1" }  , {task : "task2"}]
+        
+    }
+
+/// connect to component 
+// what is the props of component TodosState 
 console.log(store)
 console.log(store.getState())
 ReactDOM.render( 
 <Provider store={store}>
-<TodosComponent  test="init" /> 
+<TodosComponent  todos={initTodos.todos} /> 
 </Provider>, document.getElementById("app"))
  

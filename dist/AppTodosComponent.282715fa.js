@@ -30650,6 +30650,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var react_1 = __importDefault(require("react"));
 
+var TodoComponent = function TodoComponent(props) {
+  return react_1.default.createElement("div", null, props.task, " ");
+};
+
 var TodosComponent =
 /** @class */
 function (_super) {
@@ -30660,7 +30664,12 @@ function (_super) {
   }
 
   TodosComponent.prototype.render = function () {
-    return react_1.default.createElement("div", null, " This is React Component test : ", this.props.test);
+    var todosHtml = this.props.todos.map(function (todo, i) {
+      return react_1.default.createElement("ul", {
+        key: i
+      }, "Task is  ", todo.task, " ");
+    });
+    return react_1.default.createElement("div", null, react_1.default.createElement("ul", null, " ", todosHtml, " "));
   };
 
   return TodosComponent;
@@ -36556,12 +36565,21 @@ toolkit_1.configureStore({
   reducer: reducertodos
 });
 var store = redux_1.createStore(combinedReducers, initial, undefined);
+var initTodos = {
+  todos: [{
+    task: "task1"
+  }, {
+    task: "task2"
+  }]
+}; /// connect to component 
+// what is the props of component TodosState 
+
 console.log(store);
 console.log(store.getState());
 react_dom_1.default.render(react_1.default.createElement(react_redux_1.Provider, {
   store: store
 }, react_1.default.createElement(TodosComponent_1.TodosComponent, {
-  test: "init"
+  todos: initTodos.todos
 })), document.getElementById("app"));
 },{"react-dom":"../node_modules/react-dom/index.js","./TodosComponent":"../src-mock/TodosComponent.tsx","react":"../node_modules/react/index.js","redux":"../node_modules/redux/es/redux.js","@reduxjs/toolkit":"../node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js","react-redux":"../node_modules/react-redux/es/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -36591,7 +36609,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51376" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58133" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
