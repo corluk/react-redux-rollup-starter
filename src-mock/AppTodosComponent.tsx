@@ -5,7 +5,8 @@ import {createStore , Store , Action, Reducer, combineReducers, DeepPartial } fr
 import {configureStore}from "@reduxjs/toolkit"
 
 
-import {Provider  ,  } from "react-redux"
+import {Provider  , connect } from "react-redux"
+ 
 enum  TodoActionTypes {
  ADD_TODO ="ADD_TODO" 
 
@@ -59,7 +60,9 @@ const initTodos : TodosProps= {
     }
 
 /// connect to component 
-// what is the props of component TodosState 
+
+connect()
+// what is the props of component TodosComponent 
 console.log(store)
 console.log(store.getState())
 ReactDOM.render( 

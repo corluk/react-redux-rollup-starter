@@ -36572,7 +36572,8 @@ var initTodos = {
     task: "task2"
   }]
 }; /// connect to component 
-// what is the props of component TodosState 
+
+react_redux_1.connect(); // what is the props of component TodosComponent 
 
 console.log(store);
 console.log(store.getState());
@@ -36609,7 +36610,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58133" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50031" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
