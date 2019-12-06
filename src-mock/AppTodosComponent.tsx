@@ -19,9 +19,11 @@ interface TodoActionPayload extends Action<TodoActionTypes>{
 interface TodoState {
 
     todos? : string[]
+    selected? : number[]
 }
 const reducerInitial : TodoState = { 
-    todos : []
+    todos : [], 
+    selected : []
 }
  
 const reducertodos    = (durum : TodoState = reducerInitial     , hareket : TodoActionPayload) => {
@@ -56,17 +58,21 @@ const store   =   createStore(combinedReducers , initial ,undefined  )
 
 const initTodos : TodosProps= {
     todos  : [ {task : "task1" }  , {task : "task2"}]
-        
+    
     }
 
 /// connect to component 
+const mapStateToProps  = (state : TodoProps) => {
 
+     s
+
+}
 connect()
 // what is the props of component TodosComponent 
 console.log(store)
 console.log(store.getState())
 ReactDOM.render( 
 <Provider store={store}>
-<TodosComponent  todos={initTodos.todos} /> 
+<TodosComponent  todos={initTodos.todos} selected={initTodos.selected} /> 
 </Provider>, document.getElementById("app"))
  
