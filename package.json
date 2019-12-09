@@ -5,9 +5,9 @@
   "browserslist": "> 0.25%, not dead",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/jasmine-ts"
-    ,"server:apptodos" : "parcel parcels/parcel.AppTodos.html"
-  }, 
+    "test": "node_modules/.bin/jasmine-ts",
+    "server:apptodos": "parcel parcels/parcel.AppTodos.html"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
