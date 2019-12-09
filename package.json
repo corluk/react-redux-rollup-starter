@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/jasmine-ts",
-    "server:apptodos": "parcel parcels/parcel.AppTodos.html"
+ 
+    "server:todos": "parcel parcels/parcel.AppTodos.html"
+ 
   },
   "keywords": [],
   "author": "",
