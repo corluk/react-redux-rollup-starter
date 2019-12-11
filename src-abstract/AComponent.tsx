@@ -7,15 +7,16 @@ export interface AComponentProps {
 }
 
 export interface AComponentPropsValue {
-    content : string 
+    content : string  ,
+    no : number 
 }
 
 export const AComponentValue : React.FC<AComponentPropsValue>  = (props : AComponentPropsValue ) => <li>props.content </li> 
-export class AComponent extends React.Component<AComponentProps> {
+export class AComponent extends React.Component<AComponentPropsValue[]> {
 
     render(){
 
-        let html = this.props.values.map(value => <AComponentValue content={value.content} />)
+        let html = this.props.map(value => <AComponentValue no={value.no} content={value.content} />)
         return  <ul>{html}</ul>
     }
 }

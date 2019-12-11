@@ -10,3 +10,5 @@ const MessageStateToProps : MapStateToProps<ChatState,any,MessagesProps>  = (sta
 
 }
 
+
+
