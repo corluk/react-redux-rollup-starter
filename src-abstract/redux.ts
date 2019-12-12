@@ -51,33 +51,35 @@ const aComponentUpdateActionUpdate   = (newValue : string, no : number ) :  ACom
     } 
 }
 
- const inits  : AComponentItem[] = [{value:"test1" , no : 12}] 
-const aComponentReducer  : Reducer<AComponentItem[] | undefined,AComponentActions> = (state : AComponentItem[]  = inits , action : AComponentActions) =>{
+ const inits  : AComponentItemCollection = {
+     values: [{value:"test1" , no : 12}]
+ } 
+const aComponentReducer    = (state : AComponentItemCollection  = inits , action : AComponentActions) =>{
     
     switch(  action.type ){
 
         case AComponentActionNames.UPDATE : 
             let theAction = action as AComponentActionUpdate
-            let newState = state.filter(item => item.no == theAction.payload.no).map(selectedItem =>{ 
+            let newState = state.values.filter(item => item.no == theAction.payload.no).map(selectedItem =>{ 
                 selectedItem.value  =theAction.payload.newValue
                 return selectedItem 
                 }
                 )
-            return newState 
+            return state 
             
         case AComponentActionNames.CREATE : 
             let theAction2 = action as AComponentActionCreate  
-            return  [...state ,theAction2.payload] 
+            return  Object.assign({} , state , {values : [...state.values , action.payload]})
     }
-
+    return state 
 }
 
 const reducers = combineReducers({
-    xx1 : aComponentReducer 
+   values : aComponentReducer 
 })
 
 const init2 = {
-    xx1 : inits
+    values  : inits
 }
 export const store = createStore(reducers , init2 , undefined  )  
 
