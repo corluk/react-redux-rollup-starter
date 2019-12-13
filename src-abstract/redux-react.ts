@@ -9,6 +9,6 @@ const mapStateToProps = (state : AppState) => ( {
  
 
 
-export const xAComponent  =   connect(mapStateToProps)(AComponent) 
+export const XAComponent  =   connect(mapStateToProps)(AComponent) 
  
 

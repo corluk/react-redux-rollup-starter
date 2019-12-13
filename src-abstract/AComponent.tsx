@@ -8,7 +8,7 @@ export interface AComponentProps {
 }
 
 export interface AComponentPropsValue {
-    content : string  ,
+    value  : string  ,
     no : number 
 }
 
@@ -17,7 +17,7 @@ export class AComponent extends React.Component<AComponentProps> {
 
     render(){
 
-        let html = this.props.values.map(value => <AComponentValue no={value.no} content={value.content} />)
+        let html = this.props.values.map(value => <AComponentValue no={value.no} value={value.value} />)
         return  <ul>{html}</ul>
     }
 }

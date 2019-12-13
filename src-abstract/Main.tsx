@@ -1,17 +1,22 @@
 import ReactDOM from "react-dom" 
 import React from "react" 
 
-import {xAComponent} from "./redux-react" 
+import {XAComponent} from "./redux-react" 
 
 
 import {store} from "./redux" 
 
 
 import {Provider} from "react-redux" 
-import { AComponent } from "./AComponent"
+ 
+import { AComponentItem, AComponentItemCollection, AppState } from "./redux";
+import { connect, ConnectedComponent } from "react-redux";
+ 
+ 
 
+ 
 
 ReactDOM.render(<Provider store={store}>
 
-    <AComponent values={[{content: "a",no:1}]} />
+   <XAComponent />
 </Provider>, document.getElementById("app"))
