@@ -75,12 +75,12 @@ const aComponentReducer    = (state : AComponentItemCollection  = inits , action
 }
 
 const reducers = combineReducers({
-   values : aComponentReducer 
+   reducerValues : aComponentReducer 
 })
 
 const init2 = {
-    values  : inits
+    reducerValues : inits
 }
 export const store = createStore(reducers , init2 , undefined  )  
 
-
+export type AppState = ReturnType<typeof reducers>

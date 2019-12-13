@@ -1,9 +1,10 @@
 
 
 import React from "react" 
+import { AComponentItem } from "./redux"
 
 export interface AComponentProps {
-    values : AComponentPropsValue[]
+    values : AComponentItem[]
 }
 
 export interface AComponentPropsValue {

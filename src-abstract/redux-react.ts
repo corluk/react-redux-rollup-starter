@@ -1,14 +1,12 @@
-import { AComponentItem, AComponentItemCollection } from "./redux";
+import { AComponentItem, AComponentItemCollection, AppState } from "./redux";
 import { connect, ConnectedComponent } from "react-redux";
 import { AComponent } from "./AComponent";
 
 
-const mapStateToProps = (state : AComponentItemCollection) => {
-
-    return {
-        values : state 
-    }    
-}
+const mapStateToProps = (state : AppState) => ( {
+    values : state.reducerValues.values
+} )
+ 
 
 
 export const xAComponent  =   connect(mapStateToProps)(AComponent) 
