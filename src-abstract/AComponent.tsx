@@ -16,7 +16,7 @@ export interface AComponentPropsValue {
 
 
 export const NewAComponentItem : React.FC = (props) => {
-    props.
+     
 }
 export const AComponentValue : React.FC<AComponentPropsValue>  = (props : AComponentPropsValue ) => <li key={props.no}>{props.value} </li> 
 export class AComponent extends React.Component<AComponentProps> {
