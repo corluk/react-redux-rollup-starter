@@ -55,22 +55,31 @@ const aComponentUpdateActionUpdate   = (newValue : string, no : number ) :  ACom
      values: [{value:"test1" , no : 12}]
  } 
 const aComponentReducer    = (state : AComponentItemCollection  = inits , action : AComponentActions) =>{
-    
+        console.log("this is aComponent Reducer")
+        console.log(action)
     switch(  action.type ){
 
         case AComponentActionNames.UPDATE : 
+        console.log("update received")
             let theAction = action as AComponentActionUpdate
+           console.log("theAction")
             let newState = state.values.filter(item => item.no == theAction.payload.no).map(selectedItem =>{ 
-                selectedItem.value  =theAction.payload.newValue
+           console.log(newState) 
+                    selectedItem.value  =theAction.payload.newValue
+                console.log("newState in switch")
+                console.log(newState) 
+                
                 return selectedItem 
                 }
                 )
             return state 
             
         case AComponentActionNames.CREATE : 
+        console.log("create received")
             let theAction2 = action as AComponentActionCreate  
             return  Object.assign({} , state , {values : [...state.values , action.payload]})
     }
+    console.log("returning state only ")
     return state 
 }
 
